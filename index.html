@@ -90,12 +90,17 @@
         <div class="modal-content">
          <div class="modal-body">
            <div class="card">
-             <img  id="vphoto" src="" alt="">
+             <div class="d-block  text-center">
+              <img  id="vphoto" src=""  class="w-50 img-thumbnail "  alt="">
+              <h2 class="text-center">Photo</h2>
+
+             </div>
+
              <div class="card-body">
-              <h2 id="vid">id:</h2>
-               <h2 id="vname">name:</h2>
-               <h2 id="vemail">emai:</h2>
-               <h2 id="vphone">phone:</h2>
+              <h3 class="" >id: <span id="photo"></span></h3>
+               <h3>name: <span  id="vname"></span></h3>
+               <h3 >emai: <span id="vemail"></span></h3>
+               <h3>phone:<span  id="vphone"></span></h3>
 
 
              </div>
@@ -117,7 +122,7 @@
 
             <form action="" id="devs_edit_form">
               <div class="form-group mb-3 text-center">
-                <img class="w-50 img-thumbnail" src="" id="epreview" alt="" />
+                <img class="w-50 img-thumbnail" id="ephoto" src=""  alt="" />
                 <label for="" class="d-block">Photo</label>
               </div>
               <div class="form-group mb-3">
@@ -130,6 +135,10 @@
               <div class="form-group mb-3">
                 <label for="">Email</label>
                 <input id="eemail" class="form-control" type="text" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Phone</label>
+                <input id="ephone" class="form-control" type="text" />
               </div>
               <div class="form-group mb-3">
                 <label for="">Photo</label>

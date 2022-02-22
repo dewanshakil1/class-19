@@ -98,19 +98,16 @@ function editDeveloper(id){
 
     let name = document.getElementById('ename');
     let email = document.getElementById('eemail');
-    let photo = document.getElementById('ephoto');
+    let ephoto = document.getElementById('ephoto');
     let skill = document.getElementById('eskill_list');
-    let preview = document.getElementById('epreview');
     let edit_id = document.getElementById('edit_id');
 
-    axios.get(`http://localhost:5050/devs/${id}`).then(res => {
-
-        name.value = res.data.name;
-        email.value = res.data.email;
-        photo.value = res.data.photo;
-        skill.value = res.data.skillId;
+    axios.get(`http://localhost:5050/devs/${id}`).then(rese => {
+        ephoto.setAttribute('src', rese.data.photo);
+        name.value = rese.data.name;
+        email.value = rese.data.email;
+        skill.value = rese.data.skillId;
         edit_id.value = id;
-        preview.setAttribute('src',  res.data.photo);
 
 
     });
@@ -123,17 +120,18 @@ function editDeveloper(id){
     let name = document.getElementById('vname');
     let email = document.getElementById('vemail');
     let photo = document.getElementById('vphoto');
+    let  phone= document.getElementById('vphone');
     let skill = document.getElementById('vskill_list');
     let vid = document.getElementById('vdit_id');
 
-    axios.get(`http://localhost:5050/devs/${id}`).then(res => {
+    axios.get(`http://localhost:5050/devs/${id}`).then(rese => {
+        photo.setAttribute('src', rese.data.photo);
 
-        name.innerHTML= res.data.name;
-        email.innerHTML = res.data.email;
-        skill.innerHTML = res.data.skillId;
-        vid.innerHTML =  res.data.id;
-       photo .setAttribute('src',  res.data.photo);
-
+        name.innerHTML= rese.data.name;
+        email.innerHTML = rese.data.email;
+        phone.innerHTML = rese.data.phone;
+        skill.innerHTML = rese.data.skillId;
+        vid.innerHTML =  rese.data.id;
 
     });
 }
@@ -168,6 +166,13 @@ devs_edit_form.addEventListener('submit', function(e){
  */
 ///delete click kore browser reload dile delete hoy instant delete hoy te se na
 function dDeveloper(id){
-    axios.delete(`http://localhost:5050/devs/${id}`)
+    let yesno = confirm('Are you sre ?');
+
+    if(yesno){
+        axios.delete(`http://localhost:5050/devs/${id}`);
+
+    }else{
+        return false;
+    }
 
 }

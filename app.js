@@ -98,14 +98,16 @@ function editDeveloper(id){
 
     let name = document.getElementById('ename');
     let email = document.getElementById('eemail');
-    let ephoto = document.getElementById('ephoto');
+    let photo = document.getElementById('ephoto');
+    let phone = document.getElementById('ephone');
     let skill = document.getElementById('eskill_list');
     let edit_id = document.getElementById('edit_id');
 
     axios.get(`http://localhost:5050/devs/${id}`).then(rese => {
-        ephoto.setAttribute('src', rese.data.photo);
+        photo.setAttribute('src', rese.data.photo);
         name.value = rese.data.name;
         email.value = rese.data.email;
+        phone.value = rese.data.Phone;
         skill.value = rese.data.skillId;
         edit_id.value = id;
 
@@ -129,9 +131,9 @@ function editDeveloper(id){
 
         name.innerHTML= rese.data.name;
         email.innerHTML = rese.data.email;
-        phone.innerHTML = rese.data.phone;
-        skill.innerHTML = rese.data.skillId;
+        phone.innerHTML = rese.data.Phone;
         vid.innerHTML =  rese.data.id;
+
 
     });
 }
